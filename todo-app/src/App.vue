@@ -31,7 +31,6 @@ h4 {
 html,
 body {
   height: 100%;
-  -webkit-user-select: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
 }
