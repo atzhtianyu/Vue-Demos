@@ -26,5 +26,6 @@ export default {
   width: 100%;
   overflow: hidden;
   color: white;
+  // background: linear-gradient(30deg, #ff6262, #ffa947);
 }
 </style>
