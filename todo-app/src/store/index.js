@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { tomorrow } from "../common/utils";
 
 Vue.use(Vuex);
 
@@ -10,19 +11,57 @@ export default new Vuex.Store({
       {
         icon: "user",
         name: "Personal",
-        tasks: [],
+        tasks: [
+          {
+            id: 1,
+            title: "Dating",
+            date: new Date(),
+            done: false,
+            deleted: false,
+          },
+        ],
         colors: ["#ff6262", "#ffa947"],
       },
       {
         icon: "suitcase",
         name: "Work",
-        tasks: [],
+        tasks: [
+          {
+            id: 3,
+            title: "Design Sprint",
+            date: new Date(),
+            done: true,
+            deleted: false,
+          },
+          {
+            id: 4,
+            title: "Icon Set Design for Mobile App",
+            date: new Date(),
+            done: false,
+            deleted: false,
+          },
+          {
+            id: 5,
+            title: "HTML/CSS Study",
+            date: new Date(),
+            done: false,
+            deleted: false,
+          },
+        ],
         colors: ["#5b9df9", "#47bfff"],
       },
       {
         icon: "home",
         name: "Home",
-        tasks: [],
+        tasks: [
+          {
+            id: 2,
+            title: "House Keeping",
+            date: new Date(),
+            done: true,
+            deleted: false,
+          },
+        ],
         colors: ["#2c7d59", "#3ba776"],
       },
     ],
@@ -31,7 +70,42 @@ export default new Vuex.Store({
     unselect: null,
     editing: null,
   },
-  mutations: {},
+  getters: {
+    currentTodo(state) {
+      return state.todos[state.currentIndex];
+    },
+    todayTasks(state) {
+      const tasks = [];
+      state.todos.forEach((todo) => {
+        todo.tasks.forEach((task) => {
+          if (task.date <= tomorrow && !task.done && !task.deleted) {
+            tasks.push(task);
+          }
+        });
+      });
+      return tasks;
+    },
+  },
+  mutations: {
+    selectTodo(state, selected) {
+      state.unselect = null;
+      state.selected = selected;
+    },
+    unselectTodo(state) {
+      state.unselect = state.selected;
+      state.selected = null;
+    },
+    nextTodo(state) {
+      if (state.currentIndex < state.todos.length - 1) {
+        state.currentIndex++;
+      }
+    },
+    prevTodo(state) {
+      if (state.currentIndex > 0) {
+        state.currentIndex--;
+      }
+    },
+  },
   actions: {},
   modules: {},
 });
