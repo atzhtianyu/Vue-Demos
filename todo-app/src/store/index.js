@@ -108,6 +108,17 @@ export default new Vuex.Store({
     deleteTask(_, { task }) {
       task.deleted = true;
     },
+    toggleEditing(state) {
+      if (state.editing && state.editing.text) {
+        state.selected.todo.tasks.unshift({
+          title: state.editing.text,
+          date: new Date(),
+          done: false,
+          deleted: false,
+        });
+      }
+      state.editing = state.editing ? null : { text: "" };
+    },
   },
   actions: {},
   modules: {},

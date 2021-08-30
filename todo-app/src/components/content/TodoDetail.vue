@@ -61,7 +61,6 @@ export default {
 .todo_detail {
   position: fixed;
   top: 0;
-  z-index: 11;
   display: flex;
   flex-direction: column;
   border-radius: 0;
