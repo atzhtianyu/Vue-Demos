@@ -19,19 +19,19 @@
         <h4 class="todo_subtitle" v-if="todayTasks.length">Today</h4>
         <ul>
           <li v-for="task in todayTasks" :key="task.id">
-            {{ task }}
+            <task :task="task" />
           </li>
         </ul>
         <h4 class="todo_subtitle" v-if="tomorrowTasks.length">Tomorrow</h4>
         <ul>
           <li v-for="task in tomorrowTasks" :key="task.id">
-            {{ task }}
+            <task :task="task" />
           </li>
         </ul>
         <h4 class="todo_subtitle" v-if="outdatedTasks.length">Outdated</h4>
         <ul>
           <li v-for="task in outdatedTasks" :key="task.id">
-            {{ task }}
+            <task :task="task" />
           </li>
         </ul>
       </div>
@@ -41,7 +41,11 @@
 
 <script>
 import { today, tomorrow } from "../../common/utils";
+import Task from "../../components/content/Task.vue";
 export default {
+  components: {
+    Task,
+  },
   props: {
     todo: {
       type: Object,

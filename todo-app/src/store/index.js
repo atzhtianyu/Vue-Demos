@@ -105,6 +105,9 @@ export default new Vuex.Store({
         state.currentIndex--;
       }
     },
+    deleteTask(_, { task }) {
+      task.deleted = true;
+    },
   },
   actions: {},
   modules: {},
