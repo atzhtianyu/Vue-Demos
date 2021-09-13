@@ -69,7 +69,7 @@ export default {
     progressColor() {
       const colorLeft = `color-stop(30%, ${this.todo.colors[0]})`;
       const colorRight = `to(${this.todo.colors[1]})`;
-      return `webkit-gradient(linear, left bottom, right bottom, ${colorLeft}, ${colorRight})`;
+      return `-webkit-gradient(linear, left bottom, right bottom, ${colorLeft}, ${colorRight})`;
     },
     todayTasks() {
       return this.todo.tasks.filter((task) => {
@@ -89,17 +89,12 @@ export default {
   },
   methods: {
     handleClick() {
-      const appRect = document.querySelector("#app").getBoundingClientRect();
-      const elRect = this.$el.getBoundingClientRect();
-      const todo = this.todo;
-      const rect = {};
-      rect.top = elRect.top - appRect.top;
-      rect.left = elRect.left - appRect.left;
-      rect.width = elRect.width;
-      rect.height = elRect.height;
-      rect.appWidth = appRect.width;
-      rect.appHeight = appRect.height;
-      this.$emit("select", { rect, todo });
+      this.$router.push({
+        path: "/detail",
+        query: {
+          iid: this.todo.iid,
+        },
+      });
     },
   },
 };

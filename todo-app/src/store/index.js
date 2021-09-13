@@ -9,6 +9,7 @@ export default new Vuex.Store({
     currentIndex: 0,
     todos: [
       {
+        iid: 0,
         icon: "user",
         name: "Personal",
         tasks: [
@@ -23,6 +24,7 @@ export default new Vuex.Store({
         colors: ["#ff6262", "#ffa947"],
       },
       {
+        iid: 1,
         icon: "suitcase",
         name: "Work",
         tasks: [
@@ -51,6 +53,7 @@ export default new Vuex.Store({
         colors: ["#5b9df9", "#47bfff"],
       },
       {
+        iid: 3,
         icon: "home",
         name: "Home",
         tasks: [

@@ -57,7 +57,7 @@ export default {
   color: #666;
   resize: none;
 
-  font-size: 24px;
+  font-size: 32px;
   line-height: 1.2em;
 }
 

@@ -4,9 +4,6 @@
     <avatar />
     <gradient />
     <todo-list />
-    <todo-detail />
-    <todo-editing />
-    <floating-button />
   </div>
 </template>
 
@@ -14,10 +11,7 @@
 import Gradient from "../../components/content/Gradient.vue";
 import AppBar from "../../components/common/AppBar.vue";
 import Avatar from "./childComps/Avatar.vue";
-import TodoList from "../../components/content/TodoList.vue";
-import TodoDetail from "../../components/content/TodoDetail.vue";
-import TodoEditing from "../../components/content/TodoEditing.vue";
-import FloatingButton from "../../components/content/FloatingButton.vue";
+import TodoList from "./childComps/TodoList.vue";
 export default {
   name: "Home",
   components: {
@@ -25,9 +19,6 @@ export default {
     Avatar,
     Gradient,
     TodoList,
-    TodoDetail,
-    TodoEditing,
-    FloatingButton,
   },
 };
 </script>

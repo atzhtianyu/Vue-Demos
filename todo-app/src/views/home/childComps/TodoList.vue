@@ -18,7 +18,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import Todo from "./Todo.vue";
+import Todo from "../../../components/content/Todo.vue";
 
 export default {
   components: {
